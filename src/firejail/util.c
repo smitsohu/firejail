@@ -261,7 +261,7 @@ int copy_file(const char *srcname, const char *destname, uid_t uid, gid_t gid, m
 	}
 
 	// open destination
-	int dst = open(destname, O_CREAT|O_WRONLY|O_TRUNC, S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
+	int dst = open(destname, O_CREAT|O_WRONLY|O_TRUNC|O_NOFOLLOW, S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
 	if (dst < 0) {
 		fwarning("cannot open destination file %s, file not copied\n", destname);
 		close(src);
